@@ -16,7 +16,6 @@ public class RemoveDuplicates {
     }
 
     private static TreeMap<Integer, Integer> removeAndSort(int[] mas) {
-        int[] masSort;
         TreeMap<Integer, Integer> mapSort = new TreeMap<>();
         for (int ma : mas) {
             int repeat = 0;
