@@ -1,5 +1,6 @@
 package edu.lessons;
 
+import java.util.Arrays;
 import java.util.TreeMap;
 
 public class RemoveDuplicates {
@@ -11,22 +12,26 @@ public class RemoveDuplicates {
     // а значения кол-во их повторений в исходном массиве.
 
     public static void main(String[] args) {
-        int[] mas = {10, 3, 5, 3, 10, 8, 8, 7, 8, 3};
-        System.out.println(removeAndSort(mas));
+        int[] sourceArray = {10, 3, 5, 3, 10, 8, 8, 7, 8, 3};
+        removeAndSort(sourceArray);
     }
 
-    private static TreeMap<Integer, Integer> removeAndSort(int[] mas) {
+    private static void removeAndSort(int[] sourceArray) {
         TreeMap<Integer, Integer> mapSort = new TreeMap<>();
-        for (int ma : mas) {
+        for (int firstValue : sourceArray) {
             int repeat = 0;
-            for (int ma1 : mas) {
-                if (ma == ma1) {
+            for (int secondValue : sourceArray) {
+                if (firstValue == secondValue) {
                     repeat = repeat + 1;
                 }
             }
-            mapSort.put(ma, repeat);
+            mapSort.put(firstValue, repeat);
         }
-        return mapSort;
+
+        Integer[] removeDuplicates = mapSort.keySet().toArray(new Integer[0]);
+
+        System.out.println(Arrays.toString(removeDuplicates));
+        System.out.println(mapSort);
     }
 
 }
